@@ -1,0 +1,34 @@
+# ============================================================
+# Morelos se Construye de Acero (MSCDA)
+# Configuración Jekyll para despliegue en Netlify
+# ============================================================
+
+title: "Morelos se Construye de Acero"
+description: "Sitio oficial de MSCDA – Materiales de construcción de acero en Morelos."
+url: ""
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
+
+# Exclude files from build
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+
+# Collections (optional, for future use)
+collections:
+  productos:
+    output: true
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
