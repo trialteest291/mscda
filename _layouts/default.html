@@ -1,24 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ page.description | default: site.description }}">
   <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <!-- Google Fonts – Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
+
 <body>
 
-  {{ content }}
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <nav class="navbar" id="navbar">
+      <a href="/" class="navbar__logo">
+        <img src="/assets/images/logo.png" alt="Morelos Construye" />
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#categorias">Tienda</a></li>
+        <li><a href="#cotizar" class="btn btn--primary" style="padding:0.5rem 1.4rem; font-size:0.88rem;">Cotizar</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENIDO DE PÁGINA ===== -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h3>Morelos Construye</h3>
+        <p>Todo lo que necesitas para construir en el mismo lugar. Calidad, variedad y el mejor servicio en materiales
+          de construcción.</p>
+      </div>
+      <div class="footer__col">
+        <h3>Dirección</h3>
+        <p>Carr. Cuernavaca–Tepoztlán KM 4.5,<br>Ahuatepec, Cuernavaca, Mor.</p>
+      </div>
+      <div class="footer__col">
+        <h3>Horarios</h3>
+        <ul>
+          <li>Lunes a Viernes: 7:00 – 18:00</li>
+          <li>Sábado: 7:00 – 15:00</li>
+          <li>Domingo: Cerrado</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      &copy; {{ 'now' | date: "%Y" }} Morelos se Construye de Acero. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOTANTE ===== -->
+  <a href="https://wa.me/527772582878?text=Hola%2C%20quiero%20más%20información" target="_blank" rel="noopener"
+    class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path
+        d="M16.004 0C7.165 0 0 7.163 0 16.001c0 2.82.736 5.573 2.135 8.004L0 32l8.19-2.148A15.94 15.94 0 0016.004 32C24.838 32 32 24.837 32 16.001 32 7.163 24.838 0 16.004 0zm0 29.39a13.37 13.37 0 01-6.825-1.87l-.49-.29-5.07 1.33 1.353-4.942-.318-.506A13.288 13.288 0 012.61 16.001c0-7.39 6.014-13.4 13.394-13.4 7.384 0 13.396 6.01 13.396 13.4 0 7.392-6.012 13.39-13.396 13.39zm7.344-10.03c-.403-.2-2.383-1.176-2.753-1.31-.37-.135-.639-.2-.907.2-.27.403-1.043 1.312-1.278 1.58-.236.27-.47.303-.873.102-.404-.2-1.703-.627-3.243-2-.199-.168-1.67-1.53-1.852-1.733-.339-.37-.035-.54.225-.74.172-.14.403-.37.604-.554.2-.184.268-.303.403-.506.134-.2.067-.37-.034-.52-.1-.15-.907-2.187-1.244-2.993-.327-.784-.66-.676-.907-.69-.236-.01-.506-.013-.775-.013s-.707.1-1.077.505c-.37.403-1.413 1.38-1.413 3.367 0 1.985 1.448 3.903 1.649 4.172.2.27 2.848 4.347 6.9 6.095.965.416 1.717.664 2.303.85.968.308 1.85.264 2.547.16.777-.115 2.383-.975 2.72-1.916.337-.94.337-1.748.236-1.916-.1-.168-.37-.27-.774-.47z" />
+    </svg>
+  </a>
+
+  <!-- ===== MENÚ HAMBURGUESA (JS) ===== -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          links.classList.toggle('active');
+        });
+        // Cerrar menú al hacer clic en un enlace
+        links.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            links.classList.remove('active');
+          });
+        });
+      }
+    })();
+  </script>
 
   <!-- Redirección automática al panel /admin tras iniciar sesión -->
   <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function(user) {
+      window.netlifyIdentity.on("init", function (user) {
         if (!user) {
-          window.netlifyIdentity.on("login", function() {
+          window.netlifyIdentity.on("login", function () {
             document.location.href = "/admin/";
           });
         }
@@ -26,4 +117,5 @@
     }
   </script>
 </body>
+
 </html>
