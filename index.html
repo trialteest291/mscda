@@ -1,482 +1,452 @@
 ---
 layout: default
-title: "Morelos se Construye de Acero"
-description: "Materiales de construcción, acabados, plomería, electricidad, herramientas y más. Todo en un solo lugar en
-Cuernavaca, Morelos. Empresa Morelense desde 1980."
+title: "Inicio"
 ---
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<section class="hero" id="inicio">
-  <!-- Líneas decorativas de fondo -->
-  <div class="hero__bg-lines">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <div class="hero__content reveal">
-    <span class="hero__badge">🏗️ Empresa Morelense desde 1980</span>
-    <h1 class="hero__title">Todo lo que necesitas para <span>construir</span> en el mismo lugar</h1>
-    <p class="hero__subtitle">Materiales de construcción, acabados, herramientas y servicios especializados para
-      profesionales y familias en Cuernavaca, Morelos.</p>
-    <div class="hero__actions">
-      <a href="https://wa.me/527772582878?text=Hola%2C%20quiero%20una%20cotización" class="btn btn--primary"
-        target="_blank" rel="noopener">📋 Pide tu cotización</a>
-      <a href="#tienda" class="btn btn--outline">🛒 Ver Tienda</a>
-    </div>
-
-    <!-- Estadísticas del Hero -->
-    <div class="stats" style="background: transparent; padding: 3rem 0 0; margin-top: 1rem;">
-      <div class="stats__grid" style="grid-template-columns: repeat(3, 1fr); max-width: 600px; margin: 0 auto;">
-        <div class="stat">
-          <div class="stat__number" data-target="44" data-suffix="+">0</div>
-          <div class="stat__label">Años de experiencia</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number" data-target="300" data-suffix="+">0</div>
-          <div class="stat__label">Productos disponibles</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number" data-target="3">0</div>
-          <div class="stat__label">Servicios especializados</div>
-        </div>
+<section id="inicio" class="hero">
+  <div class="hero__content">
+    <div class="hero__text">
+      <span class="hero__badge">EMPRESA MORELENSE DESDE 1980</span>
+      <h1 class="hero__title">
+        TODO LO QUE<br />
+        <span class="hero__title--accent">NECESITAS</span><br />
+        PARA CONSTRUIR
+      </h1>
+      <p class="hero__desc">
+        Desde los cimientos hasta el techo. Materiales de alta calidad, concreto premezclado, transporte pesado y tres
+        opciones de crédito. Con 44 años sirviendo a Morelos.
+      </p>
+      <div class="hero__buttons">
+        <a href="https://wa.me/527772582878?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20una%20cotizaci%C3%B3n"
+          class="btn btn--primary" target="_blank" rel="noopener">Pide tu cotización</a>
+        <a href="#tienda" class="btn btn--outline">Ver catálogo →</a>
       </div>
+    </div>
+    <div class="hero__image">
+      <img src="img/hero-facade.png" alt="Fachada de Morelos Construye en Cuernavaca" loading="eager" />
+    </div>
+  </div>
+  <div class="hero__stats">
+    <div class="stat">
+      <span class="stat__number">44+</span>
+      <span class="stat__label">Años de experiencia</span>
+    </div>
+    <div class="stat">
+      <span class="stat__number">300+</span>
+      <span class="stat__label">Productos disponibles</span>
+    </div>
+    <div class="stat">
+      <span class="stat__number">3</span>
+      <span class="stat__label">Opciones de crédito</span>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     BANNER INFONAVIT / CRÉDITOS
-     ============================================================ -->
-<section class="banner-creditos banner-infonavit">
-  <div class="banner-creditos__inner">
-    <p class="banner-creditos__title">Repara, remodela o construye con tu crédito</p>
-    <p class="banner-creditos__text">Aceptamos <strong>Mejoravit (Infonavit)</strong>, <strong>Coppel Pay</strong> y
-      <strong>Atrato</strong>. ¡Pregunta por tu monto disponible!</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     TIENDA – Fusión con CMS (Jekyll Loop)
-     ============================================================ -->
-<section class="categorias tienda" id="tienda">
-  <div class="section-title reveal">
-    <h2>Nuestra Tienda</h2>
-    <p>Encuentra todo lo que necesitas organizado por categoría</p>
-    <span class="section-title__bar"></span>
-  </div>
-  <div class="categorias__grid tienda__grid">
-
-    {% for producto in site.productos %}
-    <div class="categoria-card tienda__card">
-      {% if producto.thumbnail %}
-      <img src="{{ producto.thumbnail }}" alt="{{ producto.title }}"
-        style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
-      {% else %}
-      <span class="categoria-card__icon">📦</span>
-      {% endif %}
-      <h3 class="categoria-card__title">{{ producto.title }}</h3>
-      <p class="categoria-card__desc">{{ producto.content | strip_html | truncate: 120 }}</p>
-      <a href="{{ producto.url }}" class="catalogo-card__link" style="margin-top: 0.75rem; display: inline-block;">Ver
-        producto →</a>
-    </div>
-    {% endfor %}
-
-    {% if site.productos.size == 0 %}
-    <!-- Tarjetas estáticas de categoría como fallback -->
-    <div class="categoria-card tienda__card">
-      <span class="categoria-card__icon">🏗️</span>
-      <h3 class="categoria-card__title">Acabados</h3>
-      <p class="categoria-card__desc">Pisos, azulejos, pintura y todo para darle el toque final a tu proyecto.</p>
-    </div>
-
-    <div class="categoria-card tienda__card">
-      <span class="categoria-card__icon">🧱</span>
-      <h3 class="categoria-card__title">Materiales para Construcción</h3>
-      <p class="categoria-card__desc">Cemento, varilla, block, grava, arena y más para la estructura de tu obra.</p>
-    </div>
-
-    <div class="categoria-card tienda__card">
-      <span class="categoria-card__icon">🔧</span>
-      <h3 class="categoria-card__title">Plomería</h3>
-      <p class="categoria-card__desc">Tuberías, conexiones, válvulas y accesorios para instalaciones hidráulicas.</p>
-    </div>
-
-    <div class="categoria-card tienda__card">
-      <span class="categoria-card__icon">⚡</span>
-      <h3 class="categoria-card__title">Electricidad</h3>
-      <p class="categoria-card__desc">Cables, interruptores, contactos y material eléctrico de las mejores marcas.</p>
-    </div>
-
-    <div class="categoria-card tienda__card">
-      <span class="categoria-card__icon">🏠</span>
-      <h3 class="categoria-card__title">Hogar</h3>
-      <p class="categoria-card__desc">Productos para el mantenimiento y mejora de tu hogar.</p>
-    </div>
-
-    <div class="categoria-card tienda__card">
-      <span class="categoria-card__icon">🛠️</span>
-      <h3 class="categoria-card__title">Herramientas</h3>
-      <p class="categoria-card__desc">Herramientas manuales y eléctricas para profesionales y proyectos personales.</p>
-    </div>
-    {% endif %}
-
-  </div>
-</section>
-
-<!-- ============================================================
-     SERVICIOS ESPECIALIZADOS
-     ============================================================ -->
-<section class="servicios" id="servicios">
-  <div class="section-title reveal">
-    <h2>Servicios Especializados</h2>
-    <p>Soluciones integrales para tu obra, con entrega directa y disponibilidad inmediata</p>
-    <span class="section-title__bar"></span>
-  </div>
-  <div class="servicios__grid">
-
-    <div class="servicio-card reveal">
-      <span class="servicio-card__icon">🏭</span>
-      <h3 class="servicio-card__title">Concretos para tu obra</h3>
-      <p class="servicio-card__desc">Suministro de concreto premezclado con la resistencia que tu proyecto requiere.
-        Entrega puntual directamente en tu obra con los más altos estándares de calidad.</p>
-    </div>
-
-    <div class="servicio-card reveal">
-      <span class="servicio-card__icon">💧</span>
-      <h3 class="servicio-card__title">Agua para tu obra (Pipas)</h3>
-      <p class="servicio-card__desc">Servicio de pipas de agua para construcción. Disponibilidad inmediata y cobertura
-        en toda la zona metropolitana de Cuernavaca y alrededores.</p>
-    </div>
-
-    <div class="servicio-card reveal">
-      <span class="servicio-card__icon">🚛</span>
-      <h3 class="servicio-card__title">Heavy Truck</h3>
-      <p class="servicio-card__desc">Renta de transporte pesado para traslado de materiales. Camiones de volteo,
-        plataformas, grúas y maquinaria para tu proyecto de construcción.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     COTIZADOR
-     ============================================================ -->
-<section class="cotizador" id="cotizar">
-  <div class="section-title reveal">
-    <h2>Solicita tu Cotización</h2>
-    <p>Llena el formulario y recibe tu cotización por WhatsApp de forma rápida y sin compromiso</p>
-    <span class="section-title__bar"></span>
-  </div>
-
-  <form class="cotizador__form reveal" id="cotizadorForm">
-    <div class="cotizador__field">
-      <label for="cot-nombre">Nombre completo</label>
-      <input type="text" id="cot-nombre" placeholder="Ej. Juan Pérez" required>
-    </div>
-
-    <div class="cotizador__field">
-      <label for="cot-telefono">Teléfono de contacto</label>
-      <input type="tel" id="cot-telefono" placeholder="Ej. 777 123 4567" required>
-    </div>
-
-    <div class="cotizador__field">
-      <label for="cot-producto">¿Qué producto o servicio necesitas?</label>
-      <select id="cot-producto" required>
-        <option value="">Selecciona una opción...</option>
-        <option value="Materiales de Construcción">Materiales de Construcción</option>
-        <option value="Acabados">Acabados</option>
-        <option value="Plomería">Plomería</option>
-        <option value="Electricidad">Electricidad</option>
-        <option value="Herramientas">Herramientas</option>
-        <option value="Hogar">Hogar</option>
-        <option value="Concreto Premezclado">Concreto Premezclado</option>
-        <option value="Pipas de Agua">Pipas de Agua</option>
-        <option value="Heavy Truck">Heavy Truck (Transporte)</option>
-        <option value="Otro">Otro</option>
-      </select>
-    </div>
-
-    <div class="cotizador__field">
-      <label for="cot-cantidad">Cantidad aproximada</label>
-      <input type="text" id="cot-cantidad" placeholder="Ej. 50 bultos, 10 metros, etc.">
-    </div>
-
-    <div class="cotizador__field">
-      <label for="cot-mensaje">Mensaje adicional</label>
-      <textarea id="cot-mensaje" placeholder="Describe con detalle lo que necesitas..."></textarea>
-    </div>
-
-    <button type="submit" class="btn btn--primary cotizador__submit">📲 Enviar Cotización por WhatsApp</button>
-  </form>
-</section>
-
-<!-- ============================================================
-     CRÉDITOS
-     ============================================================ -->
-<section class="servicios creditos" id="creditos" style="background: var(--crema);">
-  <div class="section-title reveal">
-    <h2>Compra a Crédito</h2>
-    <p>Facilidades de pago para que construyas sin preocupaciones</p>
-    <span class="section-title__bar"></span>
-  </div>
-  <div class="servicios__grid">
-
-    <div class="servicio-card reveal" style="border-left: 4px solid #4CAF50;">
-      <span class="servicio-card__icon">🏠</span>
-      <h3 class="servicio-card__title">Mejoravit (Infonavit)</h3>
-      <p class="servicio-card__desc">Usa tu crédito Mejoravit de Infonavit para comprar materiales de construcción. Te
-        ayudamos con el trámite completo para que tu compra sea rápida y sencilla.</p>
-    </div>
-
-    <div class="servicio-card reveal" style="border-left: 4px solid #FFB300;">
-      <span class="servicio-card__icon">💳</span>
-      <h3 class="servicio-card__title">Coppel Pay</h3>
-      <p class="servicio-card__desc">Paga a meses sin tarjeta de crédito con Coppel Pay. Compra lo que necesites y paga
-        quincenalmente en cualquier tienda Coppel. Sin aval ni buró.</p>
-    </div>
-
-    <div class="servicio-card reveal" style="border-left: 4px solid #2196F3;">
-      <span class="servicio-card__icon">🔄</span>
-      <h3 class="servicio-card__title">Atrato</h3>
-      <p class="servicio-card__desc">Financiamiento flexible con Atrato. Compra ahora y paga después en cómodas
-        mensualidades. Aprobación rápida y en línea, sin complicaciones.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     TESTIMONIOS
-     ============================================================ -->
-<section class="testimonios" id="testimonios">
-  <div class="section-title reveal">
-    <h2>Lo que dicen nuestros clientes</h2>
-    <p>Reseñas reales de Google Maps</p>
-    <span class="section-title__bar"></span>
-  </div>
-  <div class="testimonios__grid">
-
-    <div class="testimonio-card reveal">
-      <p class="testimonio-card__text">"Excelente servicio y variedad de productos. Los precios son muy competitivos y
-        el personal siempre te asesora para encontrar lo que necesitas. Es mi tienda de materiales de cabecera."</p>
-      <div class="testimonio-card__author">
-        <div class="testimonio-card__avatar">⭐</div>
-        <div>
-          <div class="testimonio-card__name">Roberto Méndez</div>
-          <div class="testimonio-card__role">Maestro de obra · ⭐⭐⭐⭐⭐</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonio-card reveal">
-      <p class="testimonio-card__text">"Remodelé toda mi casa con los materiales de Morelos Construye. Usé mi crédito
-        Mejoravit y el trámite fue rapidísimo. La atención del equipo fue increíble, muy profesionales."</p>
-      <div class="testimonio-card__author">
-        <div class="testimonio-card__avatar">⭐</div>
-        <div>
-          <div class="testimonio-card__name">María Guadalupe Torres</div>
-          <div class="testimonio-card__role">Cliente · ⭐⭐⭐⭐⭐</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonio-card reveal">
-      <p class="testimonio-card__text">"Lo mejor es el servicio de concreto premezclado. Llegaron puntuales a la obra y
-        con la mezcla exacta que pedí. Definitivamente los recomiendo para cualquier proyecto grande."</p>
-      <div class="testimonio-card__author">
-        <div class="testimonio-card__avatar">⭐</div>
-        <div>
-          <div class="testimonio-card__name">Ing. Carlos Hernández</div>
-          <div class="testimonio-card__role">Ingeniero Civil · ⭐⭐⭐⭐⭐</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     CONÓCENOS – Misión, Visión y Valores
-     ============================================================ -->
-<section class="valores conocenos" id="nosotros">
-  <h2>Conócenos</h2>
-
-  <!-- Misión y Visión -->
-  <div class="valores__list" style="margin-bottom: 3rem; gap: 2.5rem;">
-    <div class="valores__item reveal-left"
-      style="max-width: 400px; text-align: left; background: rgba(255,255,255,0.08); padding: 2rem; border-radius: 14px;">
-      <span class="valores__item-icon">🎯</span>
-      <span class="valores__item-text" style="font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">Misión</span>
-      <p
-        style="font-size: 0.92rem; opacity: 0.85; line-height: 1.7; text-transform: none; font-family: 'Outfit', sans-serif; font-weight: 400;">
-        Proveer materiales de construcción de la más alta calidad, con precios justos y un servicio personalizado que
-        impulse el crecimiento de Morelos, apoyando a familias y profesionales en cada etapa de su proyecto.</p>
-    </div>
-    <div class="valores__item reveal-right"
-      style="max-width: 400px; text-align: left; background: rgba(255,255,255,0.08); padding: 2rem; border-radius: 14px;">
-      <span class="valores__item-icon">🔭</span>
-      <span class="valores__item-text" style="font-size: 1.3rem; display: block; margin-bottom: 0.5rem;">Visión</span>
-      <p
-        style="font-size: 0.92rem; opacity: 0.85; line-height: 1.7; text-transform: none; font-family: 'Outfit', sans-serif; font-weight: 400;">
-        Ser la empresa líder en materiales de construcción en el estado de Morelos, reconocida por su calidad,
-        innovación y compromiso con el desarrollo sustentable de la comunidad.</p>
-    </div>
-  </div>
-
-  <!-- Valores -->
-  <h3
-    style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; margin-bottom: 1.5rem; color: var(--blanco);">
-    Nuestros Valores</h3>
-  <div class="valores__list">
-    <div class="valores__item reveal">
-      <span class="valores__item-icon">✅</span>
-      <span class="valores__item-text">Calidad</span>
-    </div>
-    <div class="valores__item reveal">
-      <span class="valores__item-icon">⏱️</span>
-      <span class="valores__item-text">Puntualidad</span>
-    </div>
-    <div class="valores__item reveal">
-      <span class="valores__item-icon">🤝</span>
-      <span class="valores__item-text">Compromiso</span>
-    </div>
-    <div class="valores__item reveal">
-      <span class="valores__item-icon">🎯</span>
-      <span class="valores__item-text">Profesionalismo</span>
-    </div>
-    <div class="valores__item reveal">
-      <span class="valores__item-icon">💪</span>
-      <span class="valores__item-text">Honestidad</span>
-    </div>
-    <div class="valores__item reveal">
-      <span class="valores__item-icon">🌱</span>
-      <span class="valores__item-text">Sustentabilidad</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BLOG
-     ============================================================ -->
-<section class="catalogo blog" id="blog">
-  <div class="section-title reveal">
-    <h2>Blog &amp; Noticias</h2>
-    <p>Consejos, novedades y guías para tus proyectos de construcción</p>
-    <span class="section-title__bar"></span>
-  </div>
-  <div class="catalogo__grid">
-
-    {% for post in site.posts limit:3 %}
-    <article class="catalogo-card reveal">
-      {% if post.thumbnail %}
-      <div class="catalogo-card__img-wrap">
-        <img class="catalogo-card__img" src="{{ post.thumbnail }}" alt="{{ post.title }}">
-      </div>
-      {% else %}
-      <div class="catalogo-card__img"
-        style="display:flex;align-items:center;justify-content:center;color:var(--gris-400);font-size:0.9rem; background: var(--gris-200);">
-        📰 Sin imagen</div>
-      {% endif %}
-      <div class="catalogo-card__body">
-        <h3 class="catalogo-card__title">{{ post.title }}</h3>
-        <p class="catalogo-card__date">{{ post.date | date: "%d/%m/%Y" }}</p>
-        <a href="{{ post.url }}" class="catalogo-card__link">Leer artículo →</a>
-      </div>
-    </article>
-    {% endfor %}
-
-    {% if site.posts.size == 0 %}
-    <!-- Artículos de ejemplo como fallback -->
-    <article class="catalogo-card reveal">
-      <div class="catalogo-card__img"
-        style="display:flex;align-items:center;justify-content:center;color:var(--gris-400);font-size:2.5rem; background: linear-gradient(135deg, var(--gris-100), var(--gris-200));">
-        🏠</div>
-      <div class="catalogo-card__body">
-        <h3 class="catalogo-card__title">¿Cómo elegir el cemento adecuado para tu obra?</h3>
-        <p class="catalogo-card__date">Guía práctica</p>
-        <span class="catalogo-card__link">Próximamente →</span>
-      </div>
-    </article>
-
-    <article class="catalogo-card reveal">
-      <div class="catalogo-card__img"
-        style="display:flex;align-items:center;justify-content:center;color:var(--gris-400);font-size:2.5rem; background: linear-gradient(135deg, var(--gris-100), var(--gris-200));">
-        🔧</div>
-      <div class="catalogo-card__body">
-        <h3 class="catalogo-card__title">5 errores comunes en instalaciones de plomería</h3>
-        <p class="catalogo-card__date">Guía práctica</p>
-        <span class="catalogo-card__link">Próximamente →</span>
-      </div>
-    </article>
-
-    <article class="catalogo-card reveal">
-      <div class="catalogo-card__img"
-        style="display:flex;align-items:center;justify-content:center;color:var(--gris-400);font-size:2.5rem; background: linear-gradient(135deg, var(--gris-100), var(--gris-200));">
-        💡</div>
-      <div class="catalogo-card__body">
-        <h3 class="catalogo-card__title">Guía para ahorrar en la remodelación de tu hogar</h3>
-        <p class="catalogo-card__date">Guía práctica</p>
-        <span class="catalogo-card__link">Próximamente →</span>
-      </div>
-    </article>
-    {% endif %}
-
-  </div>
-</section>
-
-<!-- ============================================================
-     SUCURSAL — Mapa y Horarios
-     ============================================================ -->
-<section class="servicios sucursal" id="sucursal" style="background: var(--blanco);">
-  <div class="section-title reveal">
-    <h2>Nuestra Sucursal</h2>
-    <p>Visítanos en Cuernavaca, Morelos</p>
-    <span class="section-title__bar"></span>
-  </div>
-
-  <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
-    <!-- Mapa Google -->
-    <div class="reveal-left"
-      style="border-radius: 14px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.1); min-height: 350px;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.2!2d-99.2478!3d18.9614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDU3JzQxLjAiTiA5OcKwMTQnNTIuMSJX!5e0!3m2!1ses!2smx!4v1690000000000!5m2!1ses!2smx"
-        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade" title="Ubicación Morelos Construye">
-      </iframe>
-    </div>
-
-    <!-- Info de sucursal -->
-    <div class="reveal-right" style="padding: 1.5rem;">
-      <h3
-        style="font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--azul); margin-bottom: 1rem; letter-spacing: 0.03em;">
-        Morelos Construye – Casa Matriz</h3>
-
-      <div style="margin-bottom: 1.5rem;">
-        <p style="font-size: 0.95rem; color: var(--gris-600); line-height: 1.8;">
-          📍 <strong>Dirección:</strong> Carr. Cuernavaca–Tepoztlán KM 4.5, Ahuatepec, Cuernavaca, Morelos, CP 62300
-        </p>
-        <p style="font-size: 0.95rem; color: var(--gris-600); line-height: 1.8;">
-          📞 <strong>Teléfono:</strong> <a href="tel:+527772582878" style="color: var(--naranja); font-weight: 600;">777
-            258 2878</a>
+<section class="banner-infonavit">
+  <div class="container">
+    <div class="banner-infonavit__inner">
+      <div class="banner-infonavit__text">
+        <svg class="banner-infonavit__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <p>Compra con tu crédito <strong>INFONAVIT Mejoravit</strong> — hasta <strong>24 meses sin intereses</strong>
         </p>
       </div>
+      <a href="https://portalmx.infonavit.org.mx/wps/portal/mejoravit/inicio" class="btn btn--white" target="_blank"
+        rel="noopener">Ver cómo funciona →</a>
+    </div>
+  </div>
+</section>
 
-      <div style="margin-bottom: 1.5rem;">
-        <p style="font-weight: 700; color: var(--azul); margin-bottom: 0.5rem; font-size: 1rem;">🕐 Horarios de
-          atención:</p>
-        <ul style="font-size: 0.92rem; color: var(--gris-600); line-height: 2;">
-          <li>Lunes a Viernes: <strong>7:00 – 18:00</strong></li>
-          <li>Sábado: <strong>7:00 – 15:00</strong></li>
-          <li>Domingo: <strong>Cerrado</strong></li>
-        </ul>
+<section id="tienda" class="tienda">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">CATÁLOGO</span>
+      <h2 class="section-title">TODO EN UN <span class="accent">SOLO LUGAR</span></h2>
+      <p class="section-subtitle">Encuentra todo lo que necesitas para tu obra, desde cimientos hasta acabados.</p>
+    </div>
+    <div class="tienda__grid">
+
+      {% for producto in site.productos %}
+      <a href="{{ producto.url }}" class="tienda__card">
+        <div class="tienda__card-icon" style="background: transparent;">
+          {% if producto.thumbnail %}
+          <img src="{{ producto.thumbnail | relative_url }}" alt="{{ producto.title }}"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
+          {% else %}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+          {% endif %}
+        </div>
+        <h3>{{ producto.title }}</h3>
+        <span class="tienda__count">Ver producto</span>
+      </a>
+      {% endfor %}
+      {% if site.productos.size == 0 %}
+      <p style="grid-column: 1 / -1; text-align: center; color: var(--gris-500);">Aún no hay productos en la tienda.
+        Súbelos desde el panel de administración.</p>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="servicios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">SERVICIOS</span>
+      <h2 class="section-title">SOLUCIONES INTEGRALES <span class="accent">PARA TU OBRA</span></h2>
+      <p class="section-subtitle">Más que materiales: concreto premezclado, agua y transporte pesado a tu disposición.
+      </p>
+    </div>
+    <div class="servicios__grid">
+      <div class="servicio-card reveal">
+        <div class="servicio-card__img">
+          <img src="img/service-concreto.png" alt="Servicio de concreto premezclado" loading="lazy" />
+          <div class="servicio-card__overlay"></div>
+        </div>
+        <div class="servicio-card__body">
+          <h3>Concretos para tu obra</h3>
+          <p>Concreto premezclado y agregados de la más alta calidad. Entregas puntuales directo en tu obra con
+            equipos especializados.</p>
+          <a href="#cotizacion" class="servicio-card__link">Solicitar cotización →</a>
+        </div>
       </div>
+      <div class="servicio-card reveal">
+        <div class="servicio-card__img">
+          <img src="img/service-agua.png" alt="Servicio de venta y transporte de agua" loading="lazy" />
+          <div class="servicio-card__overlay"></div>
+        </div>
+        <div class="servicio-card__body">
+          <h3>Agua para tu obra</h3>
+          <p>Venta y transporte de agua para construcción. Renta de vehículo o compra por pipa, con capacidad para
+            cualquier volumen.</p>
+          <a href="#cotizacion" class="servicio-card__link">Solicitar cotización →</a>
+        </div>
+      </div>
+      <div class="servicio-card reveal">
+        <div class="servicio-card__img">
+          <img src="img/service-truck.png" alt="Servicio de transporte de carga pesada" loading="lazy" />
+          <div class="servicio-card__overlay"></div>
+        </div>
+        <div class="servicio-card__body">
+          <h3>Heavy Truck</h3>
+          <p>Renta de transporte de carga con tractocamiones especializados. Movemos tus materiales pesados a donde
+            los necesites.</p>
+          <a href="#cotizacion" class="servicio-card__link">Solicitar cotización →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <a href="https://wa.me/527772582878?text=Hola%2C%20quiero%20información%20sobre%20la%20sucursal"
-        class="btn btn--primary" target="_blank" rel="noopener" style="margin-top: 0.5rem;">📲 Contáctanos por
-        WhatsApp</a>
+<section id="cotizacion" class="cotizador">
+  <div class="container">
+    <div class="cotizador__inner">
+      <div class="cotizador__text">
+        <span class="section-tag">COTIZACIÓN</span>
+        <h2 class="section-title" style="text-align:left">COTIZA TU <span class="accent">MATERIAL</span></h2>
+        <p>Llena el formulario y te contactaremos por WhatsApp con tu cotización personalizada. Respuesta en menos de
+          2 horas en horario laboral.</p>
+        <div class="cotizador__info">
+          <div class="cotizador__info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+            </svg>
+            <span>777 258 2878</span>
+          </div>
+          <div class="cotizador__info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>Carr. Cuernavaca-Tepoztlán KM 4.5</span>
+          </div>
+          <div class="cotizador__info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+            <span>Lun-Vie 7am–6pm | Sáb 7am–3pm</span>
+          </div>
+        </div>
+      </div>
+      <form class="cotizador__form" id="cotizadorForm">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Ej. 777 123 4567" required />
+        </div>
+        <div class="form-group">
+          <label for="producto">Producto de interés</label>
+          <input type="text" id="producto" name="producto" placeholder="Ej. Cemento, Varilla, Block..." required />
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4"
+            placeholder="Cuéntanos qué necesitas para tu obra..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="creditos" class="creditos">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">CRÉDITOS</span>
+      <h2 class="section-title">FACILIDADES DE <span class="accent">PAGO</span></h2>
+      <p class="section-subtitle">Tres opciones de crédito para que construyas sin preocupaciones.</p>
+    </div>
+    <div class="creditos__grid">
+      <div class="credito-card reveal">
+        <div class="credito-card__header">
+          <h3>INFONAVIT MEJORAVIT</h3>
+        </div>
+        <div class="credito-card__body">
+          <p class="credito-card__highlight">Sin costo adicional</p>
+          <p>Usa tu crédito INFONAVIT Mejoravit para comprar materiales de construcción y mejora tu vivienda sin
+            desembolsar de tu bolsillo.</p>
+          <a href="https://portalmx.infonavit.org.mx/wps/portal/mejoravit/inicio" class="btn btn--outline-dark"
+            target="_blank" rel="noopener">Más información →</a>
+        </div>
+      </div>
+      <div class="credito-card credito-card--featured reveal">
+        <div class="credito-card__ribbon">POPULAR</div>
+        <div class="credito-card__header">
+          <h3>COPPEL / COPPEL PAY</h3>
+        </div>
+        <div class="credito-card__body">
+          <p class="credito-card__highlight">12 meses sin intereses</p>
+          <p>Compra tus materiales con tu crédito Coppel o Coppel Pay y paga cómodamente hasta en 12 mensualidades sin
+            intereses.</p>
+          <a href="#cotizacion" class="btn btn--primary">Cotizar con Coppel →</a>
+        </div>
+      </div>
+      <div class="credito-card reveal">
+        <div class="credito-card__header">
+          <h3>ATRATO</h3>
+        </div>
+        <div class="credito-card__body">
+          <p class="credito-card__highlight">24 meses diferidos</p>
+          <p>Financia tu compra a plazos extendidos con Atrato Pago. Lleva todo lo que necesitas y paga cómodamente
+            mes con mes.</p>
+          <a href="https://www.atratopago.com/formulario?com=1698&suc=3278&dis=0" class="btn btn--outline-dark"
+            target="_blank" rel="noopener">Solicitar crédito →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios" class="testimonios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">TESTIMONIOS</span>
+      <h2 class="section-title">LO QUE DICEN <span class="accent">NUESTROS CLIENTES</span></h2>
+    </div>
+    <div class="testimonios__grid">
+      <div class="testimonio-card reveal">
+        <div class="testimonio-card__stars">★★★★★</div>
+        <blockquote>
+          <p>"Muy buena atención y amplio surtido de materiales, excelente calidad y precio."</p>
+        </blockquote>
+        <div class="testimonio-card__author">
+          <div class="testimonio-card__avatar">AV</div>
+          <div>
+            <strong>Alan Vázquez</strong>
+            <span>Reseña de Google</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal">
+        <div class="testimonio-card__stars">★★★★★</div>
+        <blockquote>
+          <p>"Buenos precios, buen material, siempre tienen lo que busco."</p>
+        </blockquote>
+        <div class="testimonio-card__author">
+          <div class="testimonio-card__avatar">CM</div>
+          <div>
+            <strong>Carlos Mendoza</strong>
+            <span>Reseña de Google</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal">
+        <div class="testimonio-card__stars">★★★★★</div>
+        <blockquote>
+          <p>"Llevan años siendo mi proveedor de confianza para mis obras en Morelos."</p>
+        </blockquote>
+        <div class="testimonio-card__author">
+          <div class="testimonio-card__avatar">RS</div>
+          <div>
+            <strong>Roberto Sánchez</strong>
+            <span>Reseña de Google</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conocenos" class="conocenos">
+  <div class="container">
+    <div class="conocenos__inner">
+      <div class="conocenos__main">
+        <span class="section-tag">NOSOTROS</span>
+        <h2 class="section-title" style="text-align:left">CONSTRUYENDO <span class="accent">MORELOS</span><br />DESDE
+          1980</h2>
+        <p class="conocenos__intro">Somos una empresa morelense con más de 44 años de experiencia en distribución de
+          materiales de construcción. Nacimos del sueño de ofrecer a Morelos materiales de calidad con servicio
+          profesional y precios justos.</p>
+        <div class="conocenos__mv">
+          <div class="conocenos__mv-item">
+            <h4>Misión</h4>
+            <p>Brindar un servicio profesional con calidad y solidaridad, construir sueños a través de entregas
+              oportunas y el mejor precio del mercado.</p>
+          </div>
+          <div class="conocenos__mv-item">
+            <h4>Visión</h4>
+            <p>Ser la empresa líder en Morelos en distribución de materiales de construcción, reconocida por nuestro
+              servicio, puntualidad y precios competitivos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="conocenos__values">
+        <h4>Nuestros Valores</h4>
+        <div class="conocenos__values-grid">
+          <span class="value-tag">Calidad</span>
+          <span class="value-tag">Puntualidad</span>
+          <span class="value-tag">Compromiso</span>
+          <span class="value-tag">Profesionalismo</span>
+          <span class="value-tag">Respeto</span>
+          <span class="value-tag">Servicio al cliente</span>
+          <span class="value-tag">Experiencia</span>
+          <span class="value-tag">Confianza</span>
+          <span class="value-tag">Prestigio</span>
+          <span class="value-tag">Trabajo en equipo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="blog">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">BLOG</span>
+      <h2 class="section-title">CONSEJOS PARA <span class="accent">TU OBRA</span></h2>
+      <p class="section-subtitle">Artículos útiles para que saques el mayor provecho a tus proyectos de construcción.
+      </p>
+    </div>
+    <div class="blog__grid">
+      <article class="blog-card reveal">
+        <div class="blog-card__img">
+          <img src="img/blog-impermeabilizar.png" alt="La importancia de impermeabilizar un inmueble" loading="lazy" />
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__tag">MANTENIMIENTO</span>
+          <h3>La importancia de impermeabilizar un inmueble</h3>
+          <p>Descubre por qué impermeabilizar tu casa o negocio puede ahorrarte miles de pesos en reparaciones y
+            proteger tu inversión a largo plazo.</p>
+          <a href="#" class="blog-card__link">Leer artículo →</a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card__img">
+          <img src="img/blog-armex.png" alt="¿Qué es un Armex en la construcción?" loading="lazy" />
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__tag">MATERIALES</span>
+          <h3>¿Qué es un Armex en la construcción?</h3>
+          <p>Conoce las ventajas del Armex, para qué se utiliza y cómo elegir el tipo correcto para reforzar tu
+            estructura de manera eficiente.</p>
+          <a href="#" class="blog-card__link">Leer artículo →</a>
+        </div>
+      </article>
+      <article class="blog-card reveal">
+        <div class="blog-card__img">
+          <img src="img/blog-aguinaldo.png" alt="¿Cómo invertir el aguinaldo en tu casa?" loading="lazy" />
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__tag">FINANZAS</span>
+          <h3>¿Cómo invertir el aguinaldo en tu casa?</h3>
+          <p>Tu aguinaldo puede hacer crecer el valor de tu hogar. Te compartimos las mejores formas de invertirlo en
+            mejoras y construcción.</p>
+          <a href="#" class="blog-card__link">Leer artículo →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="sucursal" class="sucursal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">SUCURSAL</span>
+      <h2 class="section-title">VISÍTANOS EN <span class="accent">AHUATEPEC</span></h2>
+    </div>
+    <div class="sucursal__card reveal">
+      <div class="sucursal__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.123456!2d-99.24!3d18.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDU4JzQ4LjAiTiA5OcKwMTQnMjQuMCJX!5e0!3m2!1ses!2smx!4v1234567890"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Morelos Construye en Ahuatepec"></iframe>
+      </div>
+      <div class="sucursal__info">
+        <h3>Morelos Construye — Ahuatepec</h3>
+        <div class="sucursal__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <p>Carr. Cuernavaca-Tepoztlán KM 4.5,<br />Col. Ahuatepec, CP 62300,<br />Cuernavaca, Morelos</p>
+        </div>
+        <div class="sucursal__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <div>
+            <p><strong>Lunes a Viernes:</strong> 7:00 am – 6:00 pm</p>
+            <p><strong>Sábado:</strong> 7:00 am – 3:00 pm</p>
+            <p><strong>Domingo:</strong> Cerrado</p>
+          </div>
+        </div>
+        <div class="sucursal__detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+          </svg>
+          <p>777 258 2878</p>
+        </div>
+        <div class="sucursal__buttons">
+          <a href="https://wa.me/527772582878" class="btn btn--whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.685-1.228A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.29 0-4.403-.762-6.102-2.047l-.426-.324-2.785.73.744-2.717-.356-.566A9.947 9.947 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+            </svg>
+            WhatsApp
+          </a>
+          <a href="https://maps.google.com/?q=Carr+Cuernavaca+Tepoztlan+KM+4.5+Ahuatepec+Cuernavaca"
+            class="btn btn--outline-dark" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Cómo llegar
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

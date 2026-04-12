@@ -2,134 +2,127 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <title>{{ page.title | default: site.title }}</title>
-
-  <!-- Google Fonts – Outfit & Bebas Neue -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-
-  <!-- Netlify Identity Widget -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title | default: site.title }} — Todo lo que necesitas para construir</title>
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
 
-  <!-- ===== HEADER / NAVBAR GLASSMORPHISM ===== -->
-  <header class="site-header" id="siteHeader">
-    <nav class="navbar" id="navbar">
-      <div class="navbar__inner">
-        <a href="/" class="navbar__logo">
-          <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Morelos Construye"
-            style="max-height: 45px; width: auto; object-fit: contain;">
-        </a>
+  <nav id="navbar" class="navbar">
+    <div class="navbar__inner">
+      <a href="/#inicio" class="navbar__logo" aria-label="Morelos Construye - Inicio">
+        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Morelos Construye">
+      </a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="/#inicio">Inicio</a></li>
+        <li><a href="/#conocenos">Conócenos</a></li>
+        <li><a href="/#servicios">Servicios</a></li>
+        <li><a href="/#tienda">Tienda</a></li>
+        <li><a href="/#sucursal">Sucursal</a></li>
+        <li><a href="/#blog">Blog</a></li>
+      </ul>
+      <a href="https://wa.me/527772582878?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20materiales" class="btn btn--cta"
+        target="_blank" rel="noopener">Cotizar ahora</a>
+    </div>
+  </nav>
 
-        <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <ul class="navbar__links" id="navLinks">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#tienda">Tienda</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#cotizar" class="btn--nav">Cotizar</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- ===== CONTENIDO DE PÁGINA ===== -->
   <main>
     {{ content }}
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer footer">
-    <div class="footer__grid container">
-      <div class="footer__col">
-        <h3>Morelos Construye</h3>
-        <p>Todo lo que necesitas para construir en el mismo lugar. Calidad, variedad y el mejor servicio en materiales
-          de construcción desde 1980.</p>
-        <div style="margin-top: 1rem; display: flex; gap: 0.75rem; justify-content: flex-start;">
-          <a href="https://www.facebook.com/morelosconstruye" target="_blank" rel="noopener" aria-label="Facebook"
-            style="color: rgba(255,255,255,0.7); transition: color 0.3s;">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="/#inicio" class="navbar__logo navbar__logo--footer" aria-label="Morelos Construye">
+            <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Morelos Construye"
+              style="filter: brightness(0) invert(1);">
           </a>
-          <a href="https://wa.me/527772582878" target="_blank" rel="noopener" aria-label="WhatsApp"
-            style="color: rgba(255,255,255,0.7); transition: color 0.3s;">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-          </a>
+          <p>Empresa morelense con más de 44 años de experiencia en materiales de construcción, concreto premezclado y
+            transporte pesado.</p>
+          <p class="footer__slogan">"Todo lo que necesitas para construir"</p>
+        </div>
+        <div class="footer__nav">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="/#inicio">Inicio</a></li>
+            <li><a href="/#conocenos">Conócenos</a></li>
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/#tienda">Tienda</a></li>
+            <li><a href="/#sucursal">Sucursal</a></li>
+            <li><a href="/#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer__servicios">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="/#servicios">Concreto premezclado</a></li>
+            <li><a href="/#servicios">Agua para obra</a></li>
+            <li><a href="/#servicios">Heavy Truck</a></li>
+            <li><a href="/#creditos">Créditos</a></li>
+            <li><a href="/#cotizacion">Cotización</a></li>
+          </ul>
+        </div>
+        <div class="footer__contacto">
+          <h4>Contacto</h4>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              777 258 2878
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Carr. Cuernavaca-Tepoztlán KM 4.5, Ahuatepec
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+              Lun-Vie 7am–6pm | Sáb 7am–3pm
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="footer__col">
-        <h3>Navegación</h3>
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#tienda">Tienda</a></li>
-          <li><a href="#cotizar">Cotizar</a></li>
-          <li><a href="#blog">Blog</a></li>
-        </ul>
+      <div class="footer__bottom">
+        <p>© 2026 Morelos Construye. Todos los derechos reservados.</p>
       </div>
-      <div class="footer__col">
-        <h3>Dirección</h3>
-        <p>📍 Carr. Cuernavaca–Tepoztlán KM 4.5, Ahuatepec, Cuernavaca, Mor.</p>
-        <p style="margin-top: 0.75rem;">📞 <a href="tel:+527772582878" style="color: rgba(255,255,255,0.8);">777 258
-            2878</a></p>
-      </div>
-      <div class="footer__col">
-        <h3>Horarios</h3>
-        <ul>
-          <li>🕐 Lunes a Viernes: 7:00 – 18:00</li>
-          <li>🕐 Sábado: 7:00 – 15:00</li>
-          <li>🚫 Domingo: Cerrado</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      &copy; {{ 'now' | date: "%Y" }} Morelos se Construye de Acero. Todos los derechos reservados.
     </div>
   </footer>
 
-  <!-- ===== WHATSAPP FLOTANTE ===== -->
-  <a href="https://wa.me/527772582878?text=Hola%2C%20quiero%20más%20información" target="_blank" rel="noopener"
-    class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <a href="https://wa.me/527772582878" class="whatsapp-float" target="_blank" rel="noopener"
+    aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
       <path
-        d="M16.004 0C7.165 0 0 7.163 0 16.001c0 2.82.736 5.573 2.135 8.004L0 32l8.19-2.148A15.94 15.94 0 0016.004 32C24.838 32 32 24.837 32 16.001 32 7.163 24.838 0 16.004 0zm0 29.39a13.37 13.37 0 01-6.825-1.87l-.49-.29-5.07 1.33 1.353-4.942-.318-.506A13.288 13.288 0 012.61 16.001c0-7.39 6.014-13.4 13.394-13.4 7.384 0 13.396 6.01 13.396 13.4 0 7.392-6.012 13.39-13.396 13.39zm7.344-10.03c-.403-.2-2.383-1.176-2.753-1.31-.37-.135-.639-.2-.907.2-.27.403-1.043 1.312-1.278 1.58-.236.27-.47.303-.873.102-.404-.2-1.703-.627-3.243-2-.199-.168-1.67-1.53-1.852-1.733-.339-.37-.035-.54.225-.74.172-.14.403-.37.604-.554.2-.184.268-.303.403-.506.134-.2.067-.37-.034-.52-.1-.15-.907-2.187-1.244-2.993-.327-.784-.66-.676-.907-.69-.236-.01-.506-.013-.775-.013s-.707.1-1.077.505c-.37.403-1.413 1.38-1.413 3.367 0 1.985 1.448 3.903 1.649 4.172.2.27 2.848 4.347 6.9 6.095.965.416 1.717.664 2.303.85.968.308 1.85.264 2.547.16.777-.115 2.383-.975 2.72-1.916.337-.94.337-1.748.236-1.916-.1-.168-.37-.27-.774-.47z" />
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+      <path
+        d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.685-1.228A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.29 0-4.403-.762-6.102-2.047l-.426-.324-2.785.73.744-2.717-.356-.566A9.947 9.947 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
     </svg>
   </a>
 
-  <!-- ===== SCRIPTS ===== -->
   <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
-
-  <!-- Redirección automática al panel /admin tras iniciar sesión -->
   <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {
+      window.netlifyIdentity.on("init", user => {
         if (!user) {
-          window.netlifyIdentity.on("login", function () {
-            document.location.href = "/admin/";
-          });
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
         }
       });
     }
