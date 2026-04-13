@@ -66,7 +66,7 @@ title: "Inicio"
       <p class="section-subtitle">Encuentra todo lo que necesitas para tu obra, desde cimientos hasta acabados.</p>
     </div>
 
-    >     <div class="tienda__grid">
+    <div class="tienda__grid">
       <a href="#cotizacion" class="tienda__card" data-count="88">
         <div class="tienda__card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -74,7 +74,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Herramientas</h3>
-        <span class="tienda__count">88 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="39">
         <div class="tienda__card-icon">
@@ -83,7 +83,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Electricidad</h3>
-        <span class="tienda__count">39 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="34">
         <div class="tienda__card-icon">
@@ -92,7 +92,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Lámparas</h3>
-        <span class="tienda__count">34 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="32">
         <div class="tienda__card-icon">
@@ -101,7 +101,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Materiales de Construcción</h3>
-        <span class="tienda__count">32 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="24">
         <div class="tienda__card-icon">
@@ -111,7 +111,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Hogar</h3>
-        <span class="tienda__count">24 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="17">
         <div class="tienda__card-icon">
@@ -121,7 +121,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Aceros</h3>
-        <span class="tienda__count">17 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="7">
         <div class="tienda__card-icon">
@@ -131,7 +131,7 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Cementos</h3>
-        <span class="tienda__count">7 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
       <a href="#cotizacion" class="tienda__card" data-count="5">
         <div class="tienda__card-icon">
@@ -141,11 +141,20 @@ title: "Inicio"
           </svg>
         </div>
         <h3>Agregados</h3>
-        <span class="tienda__count">5 productos</span>
+        <span class="tienda__count">Sin existencias</span>
       </a>
     </div>
 
-    >     {% if site.productos.size > 0 %}
+    <div style="text-align: right; margin-top: 24px;">
+      <a href="#tienda" style="color: var(--naranja); font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px; transition: 0.3s;">
+        Mostrar todas las categorías
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    {% if site.productos.size > 0 %}
     <div class="section-header" style="margin-top: 80px; margin-bottom: 40px;">
       <h3 class="section-title" style="font-size: 2.2rem;">PRODUCTOS <span class="accent">DESTACADOS</span></h3>
     </div>
