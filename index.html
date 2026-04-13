@@ -65,11 +65,94 @@ title: "Inicio"
       <h2 class="section-title">TODO EN UN <span class="accent">SOLO LUGAR</span></h2>
       <p class="section-subtitle">Encuentra todo lo que necesitas para tu obra, desde cimientos hasta acabados.</p>
     </div>
-    <div class="tienda__grid">
 
+    >     <div class="tienda__grid">
+      <a href="#cotizacion" class="tienda__card" data-count="88">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+          </svg>
+        </div>
+        <h3>Herramientas</h3>
+        <span class="tienda__count">88 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="39">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+        </div>
+        <h3>Electricidad</h3>
+        <span class="tienda__count">39 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="34">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 18h6M10 22h4M12 2a7 7 0 015 12 5 5 0 01-2 2H9a5 5 0 01-2-2 7 7 0 015-12z" />
+          </svg>
+        </div>
+        <h3>Lámparas</h3>
+        <span class="tienda__count">34 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="32">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 20h20M5 20V10l7-6 7 6v10M9 20v-6h6v6" />
+          </svg>
+        </div>
+        <h3>Materiales de Construcción</h3>
+        <span class="tienda__count">32 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="24">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path d="M9 22V12h6v10" />
+          </svg>
+        </div>
+        <h3>Hogar</h3>
+        <span class="tienda__count">24 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="17">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="6" width="20" height="12" rx="2" />
+            <path d="M12 6v12M2 12h20" />
+          </svg>
+        </div>
+        <h3>Aceros</h3>
+        <span class="tienda__count">17 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="7">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <path d="M4 12h16M12 4v16" />
+          </svg>
+        </div>
+        <h3>Cementos</h3>
+        <span class="tienda__count">7 productos</span>
+      </a>
+      <a href="#cotizacion" class="tienda__card" data-count="5">
+        <div class="tienda__card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+          </svg>
+        </div>
+        <h3>Agregados</h3>
+        <span class="tienda__count">5 productos</span>
+      </a>
+    </div>
+
+    >     {% if site.productos.size > 0 %}
+    <div class="section-header" style="margin-top: 80px; margin-bottom: 40px;">
+      <h3 class="section-title" style="font-size: 2.2rem;">PRODUCTOS <span class="accent">DESTACADOS</span></h3>
+    </div>
+    <div class="tienda__grid">
       {% for producto in site.productos %}
       <a href="{{ producto.url }}" class="tienda__card">
-        <div class="tienda__card-icon" style="background: transparent;">
+        <div class="tienda__card-icon" style="background: transparent; overflow: hidden;">
           {% if producto.thumbnail %}
           <img src="{{ producto.thumbnail | relative_url }}" alt="{{ producto.title }}"
             style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-sm);">
@@ -81,15 +164,12 @@ title: "Inicio"
           {% endif %}
         </div>
         <h3>{{ producto.title }}</h3>
-        <span class="tienda__count">Ver producto</span>
+        <span class="tienda__count">Ver detalles</span>
       </a>
       {% endfor %}
-      {% if site.productos.size == 0 %}
-      <p style="grid-column: 1 / -1; text-align: center; color: var(--gris-500);">Aún no hay productos en la tienda.
-        Súbelos desde el panel de administración.</p>
-      {% endif %}
-
     </div>
+    {% endif %}
+
   </div>
 </section>
 
